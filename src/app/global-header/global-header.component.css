@@ -1,0 +1,13 @@
+.global-header {
+  display:flex;
+  padding: 0.5rem 1rem;
+  border-width: 0 0 1px 0;
+  border-color: #EEE;
+  border-style: solid;
+}
+.global-header-center {
+  /* This fills the remaining space, by using flexbox.
+     Every toolbar row uses a flexbox row layout. */
+  flex: 1 1 auto;
+  text-align: center;
+}

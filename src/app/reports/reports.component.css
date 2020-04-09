@@ -1,0 +1,33 @@
+.reports {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: calc(100vh - 4.0rem)
+}
+
+.reports_header {
+  flex: 0 0 4rem;
+  text-align: center;
+  padding: 1rem 0 0 0;
+  align-self: stretch;
+}
+
+.reports_content {
+  flex: 1 1 auto;
+  align-self: stretch;
+  background: olive;
+}
+
+.reports_report-link {
+  display: block;
+}
+
+.reports_reports-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 1rem;
+}
+
+.reports_reports-list-item {
+  font-sise: 2rem;
+}

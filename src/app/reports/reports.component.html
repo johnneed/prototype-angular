@@ -1,1 +1,31 @@
-<p>reports works!</p>
+<div class="reports">
+  <div class="reports_header">
+    <button mat-icon-button (click)="findReports(PIN.value)">
+      <i class="material-icons">search</i>
+    </button>
+    <mat-form-field appearance="fill">
+      <mat-label>PIN</mat-label>
+      <input #PIN matInput plaeceholder="Enter PIN"/>
+    </mat-form-field>
+  </div>
+  <div class="reports_content">
+    <ul class="reports_reports-list">
+      <li class="reports_reports-list-item" *ngFor="let report of reports">
+        <a class="reports_report-link" href="{{'/reports/' + report.pin}}">
+          <span>
+          <mat-form-field appearance="fill">
+            <mat-label>PIN</mat-label>
+            <input readonly matInput value={{report.pin}}/>
+          </mat-form-field>
+          </span>
+          <span>
+          <mat-form-field appearance="fill">
+            <mat-label>Subject</mat-label>
+            <input readonly matInput value="{{report.subject.firstName + ' ' + report.subject.lastName}}"/>
+          </mat-form-field>
+          </span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

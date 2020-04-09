@@ -1,2 +1,18 @@
-.main-layout{background-color: #EEE; height: 100vh; width: 100vw; position: fixed; top: 0; left:0;}
-.main-layout_nav-link{display: inline-block; margin: 1rem;}
+.main-layout {
+  background-color: #EEE;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.main-layout_nav-link {
+  display: block;
+  margin: 1rem;
+}
+
+.main-layout_side-nav-container {
+  position: static
+}
+.main-layout_left-nav{padding-top: 4rem;}

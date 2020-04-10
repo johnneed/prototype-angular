@@ -23,11 +23,10 @@ export const search = (query = "") => {
     return new Promise((resolve, reject) => {
         window.setTimeout(function () {
             const results = {
-                vehicles: matchUs(query.vehicle, searchResults1.vehicles),
-                subjects: matchUs(query.subject, searchResults1.subjects)
+                vehicles: matchUs(query, searchResults1.vehicles),
+                subjects: matchUs(query, searchResults1.subjects)
             };
             resolve(results);  // Yay! Everything went well!
         }, 250);
     });
-
 };

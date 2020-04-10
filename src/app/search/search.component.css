@@ -1,0 +1,22 @@
+.search_form-label {
+  margin: 0.2rem 0;
+  display: block;
+}
+
+.search_form-buttons {
+  flex: 0 0 5rem;
+}
+
+.search_form-container {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+
+.search_form {
+  flex: 1 1 auto;
+}
+
+.search_radio-button {
+  display: block;
+}

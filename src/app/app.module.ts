@@ -8,6 +8,7 @@ import {SearchComponent} from './search/search.component';
 import {ReportsComponent} from './reports/reports.component';
 import {ReportDetailsComponent} from './report-details/report-details.component';
 import {GlobalHeaderComponent} from './global-header/global-header.component';
+import { FormsModule } from '@angular/forms';
 
 
 //Angular Material Components
@@ -57,9 +58,10 @@ import { ComboChartComponent } from './combo-chart/combo-chart.component';
     ComboChartComponent
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    BrowserModule,
+    FormsModule,
     MatCheckboxModule,
     MatCheckboxModule,
     MatButtonModule,

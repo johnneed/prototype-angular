@@ -1,10 +1,68 @@
 <mat-tab-group>
-  <mat-tab label="One">
-    <h1>Some tab content</h1>
-    <p>...</p>
+  <mat-tab label="Subjects">
+    <div style="search_form-container">
+      <div *ngIf="hasSubjects; then thenBlock else elseBlock"></div>
+      <ng-template #thenBlock>
+        <div style="search_form">
+          <div>clas</div>
+        </div>
+      </ng-template>
+      <ng-template #elseBlock>
+        <div style="search_form">
+          <label class="search_form-label">First Name:
+            <input matInput placeholder="First Name"/>{{subjectQuery.firstName}}
+          </label>
+          <label class="search_form-label">Last Name:
+            <input matInput placeholder="Last Name"/>{{subjectQuery.lastName}}
+          </label>
+          <label class="search_form-label">Phone Number:
+            <input matInput placeholder="###-###-####"/>{{subjectQuery.phoneNumber}}
+          </label>
+          <label class="search_form-label">Gender:</label>
+          <mat-radio-group
+            aria-labelledby="example-radio-group-label"
+            class="example-radio-group"
+            [(ngModel)]="subjectQuery.gender">
+            <mat-radio-button class="search_radio-button" *ngFor="let gender of genders" [value]="gender">
+              {{gender}}
+            </mat-radio-button>
+            <
+          </mat-radio-group>
+        </div>
+      </ng-template>
+      <div class="search_form-buttons">
+        <button mat-mini-fab>
+          <i class="material-icons">clear_all</i>
+        </button>
+        <button mat-mini-fab (click)="getSubjects()">
+          <i class="material-icons">search</i>
+        </button>
+      </div>
+    </div>
   </mat-tab>
-  <mat-tab label="Two">
-    <h1>Some more tab content</h1>
-    <p>...</p>
+  <mat-tab label="Vehicles">
+    <div style="search_form-container">
+      <div style="search_form">
+        <label class="search_form-label">First Name:
+          <input matInput placeholder="First Name"/>{{subjectQuery.firstName}}
+        </label>
+
+        <label class="search_form-label">Last Name:
+          <input matInput placeholder="Last Name"/>{{subjectQuery.lastName}}
+        </label>
+
+        <label class="search_form-label">Phone Number:
+          <input matInput placeholder="###-###-####"/>{{subjectQuery.phoneNumber}}
+        </label>
+      </div>
+      <div class="search_form-buttons">
+        <button mat-mini-fab>
+          <i class="material-icons">menu</i>
+        </button>
+        <button mat-mini-fab (click)="getVehicles()">
+          <i class="material-icons">search</i>
+        </button>
+      </div>
+    </div>
   </mat-tab>
 </mat-tab-group>

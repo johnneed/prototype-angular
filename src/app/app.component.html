@@ -16,7 +16,10 @@
         </a>
       </nav>
     </mat-sidenav>
-    <mat-sidenav mode="side" position="end" [opened]="searchOpened"><p>Search Panel</p></mat-sidenav>
+    <mat-sidenav mode="side" position="end" [opened]="searchOpened">
+      <h2>Search Panel</h2>
+      <app-search></app-search>
+    </mat-sidenav>
     <mat-sidenav-content>
       <app-global-header (onToggleSearch)="toggleSearch()" (onToggleNav)="toggleNav()"></app-global-header>
       <router-outlet></router-outlet>

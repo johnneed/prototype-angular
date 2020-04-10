@@ -10,9 +10,37 @@
 .main-layout_nav-link {
   display: block;
   margin: 1rem;
+  color: #333;
+  transition: background-color 0.5s;
+  padding: 0.2rem 1rem;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.main-layout_nav-link > span:first-child {
+  margin-right: 0.5rem;
+  height: 2rem;
+  display: inline-block;
+}
+
+.main-layout_nav-link > span:first-child > * {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.main-layout_nav-link > span:last-child {
+  line-height: 2rem;
+}
+
+.main-layout_nav-link:hover {
+  background-color: #DDD;
 }
 
 .main-layout_side-nav-container {
   position: static
 }
-.main-layout_left-nav{padding-top: 4rem;}
+
+.main-layout_left-nav:first-child {
+  padding-top: 4rem;
+}

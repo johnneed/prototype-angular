@@ -10,18 +10,18 @@ import {Report} from '../models/report';
 })
 
 export class ReportsComponent implements OnInit {
-  reports: {}[] = [];
+  reports: Report[];
 
   constructor(private reportsService: ReportsService) {
+    this.reports = [];
   }
 
 
   findReports(pin?: string): void {
     if (pin) {
-      this.reportsService.getReports(pin)
-        .then(response => {
-          this.reports = response;
-        });
+      this.reportsService.searchReports(pin).then(response => {
+        this.reports = response;
+      });
     }
   }
 

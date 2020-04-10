@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {SubjectSearchService} from '../subject-search.service';
 import {VehicleSearchService} from '../vehicle-search.service';
-
+import {states} from "../data-sources/us-states";
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -15,7 +15,7 @@ export class SearchComponent implements OnInit {
   subjectQuery: { lastName: string, firstName: string, phoneNumber: string, gender: string };
   vehicleQuery: {year: string, make: string, model: string, licensePlateNumber: string, licensePlateState: string, vin: string};
   genders: string[] = ['Male', 'Female', 'Other'];
-
+  states: {}[];
   constructor(
     private subjectSearchService: SubjectSearchService,
     private vehicleSearchService: VehicleSearchService
@@ -26,6 +26,7 @@ export class SearchComponent implements OnInit {
     this.hasVehicles = false;
     this.subjectQuery = {lastName: "", firstName: "", phoneNumber: "", gender: ""};
     this.vehicleQuery = {year: "", make: "", model: "", licensePlateNumber: "", licensePlateState: "", vin: ""};
+    this.states = states;
   }
 
   ngOnInit(): void {
@@ -44,7 +45,6 @@ export class SearchComponent implements OnInit {
       .then(response => {
         this.subjects = response;
         this.hasSubjects = true;
-        debugger;
       });
   }
 

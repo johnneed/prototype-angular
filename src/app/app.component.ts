@@ -1,4 +1,6 @@
 import {Component} from '@angular/core';
+import {ReportsService} from "./reports.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -10,7 +12,7 @@ export class AppComponent {
   searchOpened: boolean;
   navOpened: boolean;
 
-  constructor() {
+  constructor(private reportsService: ReportsService, private router: Router){
     this.searchOpened = false;
     this.navOpened = false;
   }
@@ -21,6 +23,12 @@ export class AppComponent {
 
   toggleNav() {
     this.navOpened = !this.navOpened;
+  }
+
+  newReport() {
+    this.reportsService.newReport().then(reportId => {
+      this.router.navigate([`/reports/${reportId}`], {queryParams: {order: 'popular'}});
+    })
   }
 
 }

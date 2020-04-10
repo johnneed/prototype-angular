@@ -3,16 +3,27 @@
     <mat-sidenav mode="side" [opened]="navOpened">
       <nav class="main-layout_left-nav">
         <a class="main-layout_nav-link" routerLink="/reports" routerLinkActive="active">
-          <i class="material-icons">description</i>
-          REPORTS
+          <span><i class="material-icons">description</i></span>
+          <span>REPORTS</span>
         </a>
         <a class="main-layout_nav-link" routerLink="/dashboard" routerLinkActive="active">
-          <i class="material-icons">dashboard</i>
-          DASHBOARD
+          <span><i class="material-icons">dashboard</i></span>
+          <span>DASHBOARD</span>
         </a>
-        <a class="main-layout_nav-link" routerLink="/reports" routerLinkActive="active">
-          <i class="material-icons">add</i>
-          NEW REPORT
+        <div class="main-layout_nav-link" (click)="newReport()">
+          <span><i class="material-icons">add_circle_outline</i></span>
+          <span>NEW REPORT</span>
+        </div>
+      </nav>
+      <hr/>
+      <nav class="main-layout_left-nav">
+        <a class="main-layout_nav-link" routerLink="/" routerLinkActive="active">
+          <span><i class="material-icons">description</i></span>
+          <span>SETTINGS</span>
+        </a>
+        <a class="main-layout_nav-link" routerLink="/" routerLinkActive="active">
+          <span><i class="material-icons">settings</i></span>
+          <span>LOG OUT</span>
         </a>
       </nav>
     </mat-sidenav>

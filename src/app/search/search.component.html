@@ -1,23 +1,56 @@
 <mat-tab-group>
   <mat-tab label="Subjects">
-    <div style="search_form-container">
-      <div *ngIf="hasSubjects; then thenBlock else elseBlock"></div>
-      <ng-template #thenBlock>
-        <div style="search_form">
-          <div>clas</div>
+    <div class="search_form-container">
+      <div *ngIf="hasSubjects; then subjectSearchResults else subjectSearchForm"></div>
+      <ng-template #subjectSearchResults>
+        <div class="search_form">
+          <mat-accordion *ngFor="let searchResult of subjects">
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  {{searchResult.provider}}
+                </mat-panel-title>
+                <mat-panel-description>
+                  {{searchResult.count}}
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <div *ngFor="let subject of searchResult.response">
+                <div class="search_search-result">
+                  <div class="search_search-result-controls">
+                    <button mat-icon-button color="accent" aria-label="Copy">
+                      <mat-icon>file_copy</mat-icon>
+                    </button>
+                  </div>
+                  <div class="search_search-result-info">
+                    <div>{{subject.lastName}}, {{subject.lastName}}</div>
+                    <div>{{subject.gender}}</div>
+                  </div>
+                </div>
+              </div>
+            </mat-expansion-panel>
+          </mat-accordion>
         </div>
       </ng-template>
-      <ng-template #elseBlock>
-        <div style="search_form">
-          <label class="search_form-label">First Name:
-            <input matInput placeholder="First Name"/>{{subjectQuery.firstName}}
-          </label>
-          <label class="search_form-label">Last Name:
-            <input matInput placeholder="Last Name"/>{{subjectQuery.lastName}}
-          </label>
-          <label class="search_form-label">Phone Number:
-            <input matInput placeholder="###-###-####"/>{{subjectQuery.phoneNumber}}
-          </label>
+      <ng-template #subjectSearchForm>
+        <div class="search_form">
+          <mat-form-field appearance="fill">
+            <mat-label>First Name</mat-label>
+            {{subjectQuery.firstName}}
+            <input matInput>
+          </mat-form-field>
+          <br/>
+          <mat-form-field appearance="fill">
+            <mat-label>Last Name</mat-label>
+            {{subjectQuery.lastName}}
+            <input matInput>
+          </mat-form-field>
+          <br/>
+          <mat-form-field appearance="fill">
+            <mat-label>Phone Number</mat-label>
+            {{subjectQuery.phoneNumber}}
+            <input matInput>
+          </mat-form-field>
+          <br/>
           <label class="search_form-label">Gender:</label>
           <mat-radio-group
             aria-labelledby="example-radio-group-label"
@@ -26,42 +59,89 @@
             <mat-radio-button class="search_radio-button" *ngFor="let gender of genders" [value]="gender">
               {{gender}}
             </mat-radio-button>
-            <
           </mat-radio-group>
         </div>
       </ng-template>
       <div class="search_form-buttons">
-        <button mat-mini-fab>
-          <i class="material-icons">clear_all</i>
-        </button>
-        <button mat-mini-fab (click)="getSubjects()">
-          <i class="material-icons">search</i>
-        </button>
+        <div class="search_form-buttons-layout">
+          <button mat-mini-fab>
+            <i class="material-icons">clear_all</i>
+          </button>
+          <button mat-mini-fab (click)="getSubjects()">
+            <i class="material-icons">search</i>
+          </button>
+        </div>
       </div>
     </div>
   </mat-tab>
   <mat-tab label="Vehicles">
-    <div style="search_form-container">
-      <div style="search_form">
-        <label class="search_form-label">First Name:
-          <input matInput placeholder="First Name"/>{{subjectQuery.firstName}}
-        </label>
+    <div class="search_form-container">
+      <div *ngIf="hasVehicles; then vehicleSearchResults else vehicleSearchForm "></div>
+      <ng-template #vehicleSearchResults>
+        <div class="search_form">
+          <mat-accordion *ngFor="let searchResult of vehicles">
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  {{searchResult.provider}}
+                </mat-panel-title>
+                <mat-panel-description>
+                  {{searchResult.count}}
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <div *ngFor="let vehicle of searchResult.response">
+                <div class="search_search-result">
+                  <div class="search_search-result-controls">
+                    <button mat-icon-button color="accent" aria-label="Copy">
+                      <mat-icon>file_copy</mat-icon>
+                    </button>
+                  </div>
+                  <div class="search_search-result-info">
+                    <div>{{vehicle.licensePlateState}} {{vehicle.licensePlateNumber}}</div>
+                    <div>{{vehicle.vehicleColor}} {{vehicle.vehicleyear}}</div>
+                    <div>{{vehicle.vehicleMake}}   {{vehicle.vehicleModel}}</div>
+                    <div>{{vehicle.vin}}</div>
+                  </div>
+                </div>
+              </div>
 
-        <label class="search_form-label">Last Name:
-          <input matInput placeholder="Last Name"/>{{subjectQuery.lastName}}
-        </label>
+            </mat-expansion-panel>
 
-        <label class="search_form-label">Phone Number:
-          <input matInput placeholder="###-###-####"/>{{subjectQuery.phoneNumber}}
-        </label>
-      </div>
+          </mat-accordion>
+        </div>
+      </ng-template>
+      <ng-template #vehicleSearchForm>
+        <div class="search_form">
+          <mat-form-field appearance="fill">
+            <mat-label>License Plate Number</mat-label>
+            {{vehicleQuery.licensePlateNumber}}
+            <input matInput>
+          </mat-form-field>
+          <br/>
+          <mat-form-field appearance="fill">
+            <mat-label>License Plate State</mat-label>
+            <mat-select>
+              <mat-option *ngFor="let state of states" value="state.abbreviation">{{state.name}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <br/>
+          <mat-form-field appearance="fill">
+            <mat-label>VIN</mat-label>
+            {{vehicleQuery.vin}}
+            <input matInput>
+          </mat-form-field>
+          <br/>
+        </div>
+      </ng-template>
       <div class="search_form-buttons">
-        <button mat-mini-fab>
-          <i class="material-icons">menu</i>
-        </button>
-        <button mat-mini-fab (click)="getVehicles()">
-          <i class="material-icons">search</i>
-        </button>
+        <div class="search_form-buttons-layout">
+          <button mat-mini-fab>
+            <i class="material-icons">menu</i>
+          </button>
+          <button mat-mini-fab (click)="getVehicles()">
+            <i class="material-icons">search</i>
+          </button>
+        </div>
       </div>
     </div>
   </mat-tab>

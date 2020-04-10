@@ -15,11 +15,12 @@
 .reports_content {
   flex: 1 1 auto;
   align-self: stretch;
-  background: olive;
+  background: #EEE;
 }
 
 .reports_report-link {
   display: block;
+
 }
 
 .reports_reports-list {
@@ -29,5 +30,10 @@
 }
 
 .reports_reports-list-item {
-  font-sise: 2rem;
+  font-size: 1.2rem;
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 1rem 1rem 0 1rem;
+  box-sizing: border-box;
+  background-color: #FFF;
 }

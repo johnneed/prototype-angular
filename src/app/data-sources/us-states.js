@@ -1,4 +1,4 @@
-export const USStates = {
+const USStates = {
     "AL": "Alabama",
     "AK": "Alaska",
     "AS": "American Samoa",
@@ -59,3 +59,5 @@ export const USStates = {
     "WI": "Wisconsin",
     "WY": "Wyoming"
 };
+
+export const states = Object.keys(USStates).map(key => ({abbreviation: key, name: USStates[key]}));

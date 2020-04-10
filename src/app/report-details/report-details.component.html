@@ -1,1 +1,97 @@
-<p>report-details works!</p>
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <span>Report</span>
+      </mat-panel-title>
+      <mat-panel-description>  </mat-panel-description>
+    </mat-expansion-panel-header>
+    <mat-form-field appearance="fill">
+      <mat-label>Incident Date</mat-label>
+      {{"May 3 2019"}}
+      <input matInput>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Created</mat-label>
+      {{"May 3 2019"}}
+      <input matInput>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Updated</mat-label>
+      {{report.updated}}
+      <input matInput>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>PIN</mat-label>
+      {{report.pin}}
+      <input matInput>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Incident Type</mat-label>
+      {{report.type}}
+      <input matInput>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Officer</mat-label>
+      {{report.officer}}
+      <input matInput>
+    </mat-form-field>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <span>Details</span>
+      </mat-panel-title>
+      <mat-panel-description>  </mat-panel-description>
+    </mat-expansion-panel-header>
+    <mat-form-field appearance="fill">
+      <mat-label>Details</mat-label>
+      {{report.details}}
+      <input multiple matInput>
+    </mat-form-field>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <span>Vehicle</span>
+      </mat-panel-title>
+      <mat-panel-description>  </mat-panel-description>
+    </mat-expansion-panel-header>
+    <div>Vehicle</div>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <span>Subject</span>
+      </mat-panel-title>
+      <mat-panel-description>  </mat-panel-description>
+    </mat-expansion-panel-header>
+    <mat-form-field appearance="fill">
+      <mat-label>First Name</mat-label>
+      {{report.subject.firstName}}
+      <input matInput>
+    </mat-form-field>
+    <br/>
+    <mat-form-field appearance="fill">
+      <mat-label>Last Name</mat-label>
+      {{report.subject.lastName}}
+      <input matInput>
+    </mat-form-field>
+    <br/>
+    <mat-form-field appearance="fill">
+      <mat-label>Phone Number</mat-label>
+      {{report.subject.phoneNumber}}
+      <input matInput>
+    </mat-form-field>
+    <br/>
+    <label class="search_form-label">Gender:</label>
+    <mat-radio-group
+      aria-labelledby="example-radio-group-label"
+      class="example-radio-group"
+      [(ngModel)]="report.subject.gender">
+      <mat-radio-button class="search_radio-button" *ngFor="let gender of genders" [value]="gender">
+        {{gender}}
+      </mat-radio-button>
+    </mat-radio-group>
+  </mat-expansion-panel>
+</mat-accordion>

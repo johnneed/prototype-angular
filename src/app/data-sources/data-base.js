@@ -1,7 +1,7 @@
-import {reports} from "./fake-data";
-import {Report} from "../models/report";
+import { reports } from "./fake-data";
+import { Report } from "../models/report";
 
-let myReports = reports;
+let myReports = reports.reduce((acc, report) => ({...acc, [report.id]: report}), {});
 
 // Fake API Call
 export const searchReports = (pin) => new Promise((resolve, reject) => {

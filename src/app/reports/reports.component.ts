@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ReportsService} from '../reports.service';
 import {Report} from '../models/report';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-reports',
@@ -12,16 +13,20 @@ import {Report} from '../models/report';
 export class ReportsComponent implements OnInit {
   reports: Report[];
 
-  constructor(private reportsService: ReportsService) {
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private reportsService: ReportsService) {
     this.reports = [];
   }
 
 
   findReports(pin?: string): void {
     if (pin) {
-      this.reportsService.searchReports(pin).then(response => {
-        this.reports = response;
-      });
+      this.reportsService.searchReports(pin).then(
+        response => {
+          this.reports = response;
+        });
     }
   }
 

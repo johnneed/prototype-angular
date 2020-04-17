@@ -44,3 +44,9 @@
 .main-layout_left-nav:first-child {
   padding-top: 4rem;
 }
+
+
+.main-layout-search-header{
+  text-align: center;
+  padding-top: 1rem;
+}

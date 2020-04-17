@@ -4,37 +4,31 @@
       <mat-panel-title>
         <span>Report</span>
       </mat-panel-title>
-      <mat-panel-description>  </mat-panel-description>
+      <mat-panel-description></mat-panel-description>
     </mat-expansion-panel-header>
     <mat-form-field appearance="fill">
       <mat-label>Incident Date</mat-label>
-      {{"May 3 2019"}}
-      <input matInput>
+      <input matInput value="May 3 2019">
     </mat-form-field>
     <mat-form-field appearance="fill">
       <mat-label>Created</mat-label>
-      {{"May 3 2019"}}
-      <input matInput>
+      <input matInput value="May 3 2019">
     </mat-form-field>
     <mat-form-field appearance="fill">
       <mat-label>Updated</mat-label>
-      {{report.updated}}
-      <input matInput>
+      <input matInput value="May 3 2019">
     </mat-form-field>
     <mat-form-field appearance="fill">
       <mat-label>PIN</mat-label>
-      {{report.pin}}
-      <input matInput>
+      <input matInput [value]="report.pin">
     </mat-form-field>
     <mat-form-field appearance="fill">
       <mat-label>Incident Type</mat-label>
-      {{report.type}}
-      <input matInput>
+      <input matInput [value]="report.type">
     </mat-form-field>
     <mat-form-field appearance="fill">
       <mat-label>Officer</mat-label>
-      {{report.officer}}
-      <input matInput>
+      <input matInput [value]="report.officer">
     </mat-form-field>
   </mat-expansion-panel>
   <mat-expansion-panel>
@@ -42,12 +36,12 @@
       <mat-panel-title>
         <span>Details</span>
       </mat-panel-title>
-      <mat-panel-description>  </mat-panel-description>
+      <mat-panel-description></mat-panel-description>
     </mat-expansion-panel-header>
-    <mat-form-field appearance="fill">
+    <mat-form-field class="report-details--details"  appearance="fill">
       <mat-label>Details</mat-label>
-      {{report.details}}
-      <input multiple matInput>
+      <textarea multiple matInput [value] = "report.details">
+      </textarea>
     </mat-form-field>
   </mat-expansion-panel>
   <mat-expansion-panel>
@@ -55,33 +49,54 @@
       <mat-panel-title>
         <span>Vehicle</span>
       </mat-panel-title>
-      <mat-panel-description>  </mat-panel-description>
+      <mat-panel-description></mat-panel-description>
     </mat-expansion-panel-header>
-    <div>Vehicle</div>
+    <mat-form-field appearance="fill">
+      <mat-label>License Plate </mat-label>
+      <input matInput [value]="report.vehicle.licensePlateNumber"/>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>State </mat-label>
+      <input matInput [value]="report.vehicle.licensePlateState"/>
+    </mat-form-field>
+    <br/>
+    <mat-form-field appearance="fill">
+      <mat-label>Vehicle Color</mat-label>
+        <input matInput [value]="report.vehicle.vehicleColor"/>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Vehicle Year</mat-label>
+      <input matInput [value]="report.vehicle.vehicleYear"/>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Vehicle Mae</mat-label>
+      <input matInput [value]="report.vehicle.vehicleMake"/>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Vehicle Model</mat-label>
+      <input matInput [value]="report.vehicle.vehicleModel"/>
+    </mat-form-field>
   </mat-expansion-panel>
   <mat-expansion-panel>
     <mat-expansion-panel-header>
       <mat-panel-title>
         <span>Subject</span>
       </mat-panel-title>
-      <mat-panel-description>  </mat-panel-description>
+      <mat-panel-description></mat-panel-description>
     </mat-expansion-panel-header>
     <mat-form-field appearance="fill">
       <mat-label>First Name</mat-label>
-      {{report.subject.firstName}}
-      <input matInput>
+      <input matInput [value]="report.subject.firstName"/>
     </mat-form-field>
     <br/>
     <mat-form-field appearance="fill">
       <mat-label>Last Name</mat-label>
-      {{report.subject.lastName}}
-      <input matInput>
+      <input matInput [value]="report.subject.lastName"/>
     </mat-form-field>
     <br/>
     <mat-form-field appearance="fill">
       <mat-label>Phone Number</mat-label>
-      {{report.subject.phoneNumber}}
-      <input matInput>
+      <input matInput [value]="report.subject.phoneNumber">
     </mat-form-field>
     <br/>
     <label class="search_form-label">Gender:</label>
